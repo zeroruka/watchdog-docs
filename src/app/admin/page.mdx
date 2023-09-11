@@ -1,0 +1,54 @@
+export const metadata = {
+  title: 'Admin',
+  description: 'In this guide, we will talk about the admin page.',
+}
+
+# Admin
+
+In this guide, we will delve deeper into the various actions a site admin can perform. This includes managing users, handling site settings, and overseeing system performance. {{ className: 'lead' }}
+
+An admin is defined as the user with the property `admin` set to `true`. An admin user with username of `admin` is created automatically when the server is first initialized. The admin user has access to the admin page, which is accessible at `https://localhost:5173/admin`.
+
+---
+
+## Control Panel
+
+This page shows the actions that an admin can perform. For now it only has one action, which is to start all scrapers.
+
+When the button is pressed, the server will initialise scrapers of every so that it matches the saved scraper state of each user. This button should only be pressed when the server is restarted, if not, it will cause the scrapers to run twice.
+
+<Note>
+  This is a temporary solution to the problem of scraper state. In the future,
+  we will have a more robust solution that will allow automatic resumption of
+  scrapers when the server is restarted.
+</Note>
+
+---
+
+## All Users
+
+This page shows all the users that have been created on the site. It also shows their scraper state, telegram chat ID, and the admin status.
+
+### Example Data Table
+
+| Added By | Telegram ID | Is Scraping | Is Admin |
+| -------- | ----------- | ----------- | -------- |
+| admin    | 123456789   | true        | true     |
+| test1    | 987654321   | false       | false    |
+| ...      | ...         | ...         | ...      |
+
+By pressing the delete button, the admin can delete a user from the site. This will also delete all the listings that the user has scraped and all urls that the user has added to the site.
+
+---
+
+## All Listings
+
+This page shows all the listings that have been scraped by all users on the site.
+
+### Example Data Table
+
+| Added By | Title | Price | Date Added | Origin Country |
+| -------- | ----- | ----- | ---------- | -------------- |
+| admin    | ...   | ...   | ...        | ...            |
+| test1    | ...   | ...   | ...        | ...            |
+| ...      | ...   | ...   | ...        | ...            |

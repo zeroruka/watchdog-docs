@@ -1,0 +1,98 @@
+export const metadata = {
+  title: 'Control',
+  description:
+    'On this page, we’ll dive into the different control endpoints you can use to manage the scraper status programmatically.',
+}
+
+# Control
+
+The control endpoint manages the status of our scraper. On this page, we’ll dive into the different control endpoints you can use to manage the scraper status programmatically. {{ className: 'lead' }}
+
+## Get scraper status {{ tag: 'GET', label: '/api/control/status/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to get the current status of the scraper.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/api/control/status/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.watchdog.moe/api/control/status/ \
+      -H "Authorization: Bearer {token}" \
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Scraper is not running",
+      "value": false
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Start scraper {{ tag: 'POST', label: '/api/control/start' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to start the scraper. User must be authenticated through a Bearer token.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/api/control/start/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X PUT https://api.watchdog.moe/api/control/start/ \
+      -H "Authorization: Bearer {token}"
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Starting scraper for user test1"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Stop scraper {{ tag: 'POST', label: '/api/control/stop' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to stop the scraper. User must be authenticated through a Bearer token.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/api/control/stop/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X PUT https://api.watchdog.moe/api/control/stop/ \
+      -H "Authorization: Bearer {token}"
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Stopping scraper"
+    }
+    ```
+
+  </Col>
+</Row>

@@ -1,0 +1,134 @@
+export const metadata = {
+  title: 'Users',
+  description:
+    'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.',
+}
+
+# Users
+
+On this page, we'll dive into the different user endpoints you can use to manage users programmatically. {{ className: 'lead' }}
+
+## The user model
+
+The user model contains all the information about the user, such as their username, chat id, and scraping status. It also contains a reference to the user's listings and urls.
+
+### Properties
+
+<Properties>
+  <Property name="id" type="string">
+    Unique identifier for the user.
+  </Property>
+  <Property name="username" type="string">
+    The username for the user.
+  </Property>
+  <Property name="scraper_status" type="boolean">
+    The status of the user's scraper.
+  </Property>
+  <Property name="admin" type="boolean">
+    Whether or not the user is an admin.
+  </Property>
+  <Property name="chat_id" type="string">
+    The Telegram chat id for the user.
+  </Property>
+</Properties>
+
+---
+
+## Get user profile {{ tag: 'GET', label: '/api/get-user-profile/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to retrieve the current user profile. User must be authenticated through a Bearer token.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/api/get-user-profile/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.watchdog.moe/api/get-user-profile/ \
+      -H "Authorization: Bearer {token}" \
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+    "username": "test1",
+    "user_id": 2,
+    "chat_id": 818971977,
+    "scraper_status": false
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Update user's Chat ID {{ tag: 'POST', label: '/api/change-chat-id/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to update the current user's chat id. User must be authenticated through a Bearer token.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="chat_id" type="string">
+        The new chat id for the user that you want to change to.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/api/change-chat-id/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X PUT https://api.watchdog.moe/api/change-chat-id/ \
+      -H "Authorization: Bearer {token}" \
+      -d chat_id=818971977
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+    "message": "Chat id changed successfully"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Delete user {{ tag: 'DELETE', label: '/api/goodbye/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to your account. User must be authenticated through a Bearer token.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="DELETE" label="/api/goodbye/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X DELETE https://api.watchdog.moe/api/goodbye/ \
+      -H "Authorization: Bearer {token}"
+    ```
+
+    </CodeGroup>
+    ```json {{ title: 'Response' }}
+    {
+    "message": "User deleted successfully"
+    }
+    ```
+
+  </Col>
+</Row>

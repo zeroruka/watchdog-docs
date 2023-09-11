@@ -1,0 +1,39 @@
+export const metadata = {
+  title: 'Scraping',
+  description:
+    'In this guide, we will look at how to use our web ui to start scraping for new listings on eBay',
+}
+
+# Scraping
+
+In this guide, we will look at how to use our web ui to start scraping for new listings on eBay. {{ className: 'lead' }}
+
+If you have not yet created an account, visit the [Authentication](/authentication) guide to learn how to create an account and come back once done.
+
+## Example use case
+
+In this example, let's say we want to scrape for any listings that matches the search phrase `Malaya Notes`. You would first need to create a new scraper url by clicking on the `Add URL` button on the top right corner of the page.
+
+<Properties>
+  <Property name="Name" type="string">
+    Any custom name to identify this scraper url. This does not affect the
+    scraping process, and is only used when sending a message to you through
+    telegram.
+  </Property>
+  <Property name="Search Phrase" type="string">
+    The search phrase to use when scraping for new listings. This is the same as
+    how you would normally search in eBay. The URL will be automatically
+    constructed based on your search terms. In this example, we will use `Malaya
+    Notes`.
+  </Property>
+</Properties>
+
+<Note>
+  To make changes to the scraper URLs, you must first stop the scraper. You can
+  do this by pressing the `Stop Scraper` button on the top right corner of the
+  page.
+</Note>
+
+Once you have added a new scraper url, you will see your url appear in the data table below. Now you can press the `Start Scraper` button on the top right corner of the page to start scraping for new listings.
+
+To view all the listings that have been scraped, you can go to the [Results](/results) page. There, you will be able to see all the listings that have been scraped. New listings that appears after you start the scraper will be automatically sent to your telegram account.

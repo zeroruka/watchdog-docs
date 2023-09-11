@@ -1,0 +1,146 @@
+export const metadata = {
+  title: 'Urls',
+  description:
+    'On this page, we’ll dive into the different url endpoints you can use to manage urls programmatically.',
+}
+
+# Scraper URLs
+
+Scraper URLs are the scraping targets of our scrapers in Watchdog. On this page, we'll dive into the different url endpoints you can use to manage urls programmatically. {{ className: 'lead' }}
+
+## The url model
+
+The url model contains all the information about the url that our scraper will scrape.
+
+### Properties
+
+<Properties>
+  <Property name="id" type="integer">
+    Unique identifier for the url.
+  </Property>
+  <Property name="name" type="string">
+    User specified name for the url, used to identify the url in the dashboard.
+  </Property>
+  <Property name="url" type="string">
+    The url that our scraper will scrape.
+  </Property>
+</Properties>
+
+---
+
+## List all urls {{ tag: 'GET', label: '/api/scraper/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to retrieve a list of all your urls.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/v1/messages">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.protocol.chat/v1/messages \
+      -H "Authorization: Bearer {token}" \
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "1": {
+        "name": "Test",
+        "url": "https://www.ebay.com.sg/sch/i.html?_from=R40&_nkw=test&_sacat=0&_sop=10&_ipg=120",
+        "added_by": "[{2: {'username': 'test1', 'scraper_status': False, 'admin': False, 'chat_id': 818971977}}]"
+      },
+      "2", {
+        // ...
+      }
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Add a url {{ tag: 'PUT', label: '/api/scraper/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to add a url to your list of urls for our scraper to scrape.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="url" type="string">
+        The search phrase for the listings you want to scrape. It will be automatically converted to a url.
+      </Property>
+      <Property name="name" type="string">
+        User specified name for the url, used to identify the url in the dashboard.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/api/scraper/">
+
+    ```bash {{ title: 'cURL' }}
+    curl https://api.watchdog.moe/api/scraper \
+      -H "Authorization: Bearer {token}" \
+      -d url="malaya notes" \
+      -d name="malaya notes"
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Successfully added Url(id = 4 name = malaya notes, url = https://www.ebay.com.sg/sch/i.html?_from=R40&_nkw=malaya+notes&_sacat=0&_sop=10&_ipg=120)"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Delete a url {{ tag: 'DELETE', label: '/api/scraper/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to delete a url from your list of urls on your account.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="url" type="string">
+        The url that you want to delete.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="DELETE" label="/api/scraper/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X DELETE https://api.watchdog.moe/api/scraper/ \
+      -H "Authorization: Bearer {token}"
+      -d url="https://www.ebay.com.sg/sch/i.html?_from=R40&_nkw=malaya+notes&_sacat=0&_sop=10&_ipg=120"
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Successfully deleted Url(id = 3 name = Test, url = https://www.ebay.com.sg/sch/i.html?_from=R40&_nkw=test&_sacat=0&_sop=10&_ipg=120)"
+    }
+    ```
+
+  </Col>
+</Row>

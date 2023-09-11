@@ -1,0 +1,196 @@
+export const metadata = {
+  title: 'Listings',
+  description:
+    'On this page, we’ll dive into the different listing endpoints you can use to manage listings programmatically.',
+}
+
+# Listings
+
+On this page, we’ll dive into the different listing endpoints you can use to manage listings programmatically. {{ className: 'lead' }}
+
+## The listing model
+
+The `ListingsModel` is a database model that represents a listing, with properties such as `id`, `name` and `price`.
+
+### Properties
+
+<Properties>
+  <Property name="id" type="integer">
+    Unique identifier for the listing.
+  </Property>
+  <Property name="name" type="string">
+    Name of the listing.
+  </Property>
+  <Property name="price" type="string">
+    Price of the listing.
+  </Property>
+  <Property name="url" type="string">
+    URL of the listing. Link to the original listing on eBay.
+  </Property>
+  <Property name="thumbnail" type="string">
+    Thumbnail of the listing. This is a URL to a low resolution image of the
+    listing.
+  </Property>
+  <Property name="source" type="string">
+    Source Image of the listing. This is a URL to a high resolution image of the
+    listing.
+  </Property>
+  <Property name="date" type="date">
+    Date that the listing was added to the database.
+  </Property>
+  <Property name="new" type="boolean">
+    Whether the listing is new or not.
+  </Property>
+  <Property name="seller" type="string">
+    The seller that posted the listing
+  </Property>
+  <Property name="seller_items_sold" type="integer">
+    Number of items sold by the seller.
+  </Property>
+  <Property name="seller_rating" type="string">
+    Rating of the seller.
+  </Property>
+  <Property name="origin_country" type="string">
+    Origin country of the listing.
+  </Property>
+  <Property name="postage_fee" type="string">
+    Postage fee of the listing.
+  </Property>
+</Properties>
+
+---
+
+## List all listings {{ tag: 'GET', label: '/api/listings/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to retrieve a of all the current user's scraped listings.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/api/listings/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.watchdog.moe/api/listings/ \
+      -H "Authorization: Bearer {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+     {
+      "126562395658": {
+        "listing": {
+            "title": "WWII MALAYA JAPANESE OCCUPATION 100 DOLLARS NOTE UNCIRCULATED",
+            "price": "S$ 11.49",
+            "url": "https://www.ebay.com.sg/itm/125743423679",
+            "date_added": "2023-03-25",
+            "new": null,
+            "origin_country": "United States",
+            "postage_fee": "S$ 6.66",
+            "images": {
+                "thumbnail_l225px": "https://i.ebayimg.com/thumbs/images/g/fpsAAOSwOXVj1qNe/s-l225.jpg",
+                "source_l800px": "https://i.ebayimg.com/thumbs/images/g/fpsAAOSwOXVj1qNe/s-l800.jpg"
+            }
+        },
+        "seller": {
+            "name": "zero29zero",
+            "items_sold": "1,878",
+            "rating": "99.8%"
+        }
+    },
+      "176457253793": {
+        // ...
+        }
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## List a single listing {{ tag: 'GET', label: '/api/listings?listing_id={id}' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to retrieve a single listing by its unique identifier.
+
+    ### Attributes
+
+    <Properties>
+      <Property name="listing_id" type="integer">
+        Unique identifier for the listing.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/api/listings?listing_id={id}">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.watchdog.moe/api/listings?listing_id={id} \
+      -H "Authorization: Bearer {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+    "126562395658": {
+        "listing": {
+            "title": "WWII MALAYA JAPANESE OCCUPATION 100 DOLLARS NOTE UNCIRCULATED",
+            "price": "S$ 11.49",
+            "url": "https://www.ebay.com.sg/itm/125743423679",
+            "date_added": "2023-03-25",
+            "new": null,
+            "origin_country": "United States",
+            "postage_fee": "S$ 6.66",
+            "images": {
+                "thumbnail_l225px": "https://i.ebayimg.com/thumbs/images/g/fpsAAOSwOXVj1qNe/s-l225.jpg",
+                "source_l800px": "https://i.ebayimg.com/thumbs/images/g/fpsAAOSwOXVj1qNe/s-l800.jpg"
+            }
+        },
+        "seller": {
+            "name": "zero29zero",
+            "items_sold": "1,878",
+            "rating": "99.8%"
+        }
+      }
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Delete all listings {{ tag: 'DELETE', label: '/api/listings/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to delete all the current user's scraped listings.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="DELETE" label="/api/listings/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X DELETE https://api.watchdog.moe/api/listings/ \
+      -H "Authorization: Bearer {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Successfully deleted all listings"
+    }
+    ```
+
+  </Col>
+</Row>

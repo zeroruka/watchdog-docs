@@ -1,0 +1,141 @@
+export const metadata = {
+  title: 'Auth',
+  description:
+    'On this page, we’ll dive into the different auth endpoints you can use to manage login states.',
+}
+
+# Authentication
+
+On this page, we'll dive into the different authentication endpoints you can use to login and registration. {{ className: 'lead' }}
+
+## Register a new user {{ tag: 'POST', label: '/api/register/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to create a new user by registering with a username and chat id.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="username" type="string">
+        The username of the user you want to register.
+        </Property>
+        <Property name="password" type="string">
+        The password of the user you want to register.
+        </Property>
+        <Property name="account" type="string">
+        The telegram chat id of the user you want to register.
+        </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/api/register/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X POST https://api.watchdog.moe/api/register/ \
+      -d username={username} \
+      -d password={password} \
+      -d account={chat_id}
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+    "message": "User {username} was created",
+    "id": {id},
+    "chat_id": {chat_id}
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Login to an existing user account {{ tag: 'POST', label: '/api/login/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to login to an existing user account. You will receive a Bearer token that you can use to authenticate yourself in other endpoints.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="username" type="string">
+        The username of the user you want to login.
+        </Property>
+        <Property name="password" type="string">
+        The password of the user you want to login.
+        </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/api/login/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X POST https://api.watchdog.moe/api/login/ \
+      -d username={username} \
+      -d password={password}
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+    "token": {token}
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Change password {{ tag: 'POST', label: '/api/change-password/' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to change your password for the current user authenticated by the Bearer token.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="old_password" type="string">
+        The old password of the user you want to change, it must match the current password.
+        </Property>
+        <Property name="new_password" type="string">
+        The new password of the user you want to change.
+        </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/api/change-password/">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X POST https://api.watchdog.moe/api/change-password/ \
+      -H "Authorization: Bearer {token}" \
+      -d old_password={old_password} \
+      -d new_password={new_password}
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+    "message": "Password changed successfully"
+    }
+    ```
+
+  </Col>
+
+</Row>
