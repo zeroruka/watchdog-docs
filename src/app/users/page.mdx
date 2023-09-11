@@ -34,7 +34,7 @@ The user model contains all the information about the user, such as their userna
 
 ---
 
-## Get user profile {{ tag: 'GET', label: '/api/get-user-profile/' }}
+## Get user profile {{ tag: 'GET', label: '/v1/get-user-profile/' }}
 
 <Row>
   <Col>
@@ -44,10 +44,10 @@ The user model contains all the information about the user, such as their userna
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/api/get-user-profile/">
+    <CodeGroup title="Request" tag="GET" label="/v1/get-user-profile/">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.watchdog.moe/api/get-user-profile/ \
+    curl -G https://watchdog-api.zeroruka.moe/v1/get-user-profile/ \
       -H "Authorization: Bearer {token}" \
     ```
 
@@ -67,7 +67,7 @@ The user model contains all the information about the user, such as their userna
 
 ---
 
-## Update user's Chat ID {{ tag: 'POST', label: '/api/change-chat-id/' }}
+## Update user's Chat ID {{ tag: 'POST', label: '/v1/change-chat-id/' }}
 
 <Row>
   <Col>
@@ -85,10 +85,10 @@ The user model contains all the information about the user, such as their userna
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/api/change-chat-id/">
+    <CodeGroup title="Request" tag="POST" label="/v1/change-chat-id/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.watchdog.moe/api/change-chat-id/ \
+    curl -X PUT https://watchdog-api.zeroruka.moe/v1/change-chat-id/ \
       -H "Authorization: Bearer {token}" \
       -d chat_id=818971977
     ```
@@ -106,7 +106,7 @@ The user model contains all the information about the user, such as their userna
 
 ---
 
-## Delete user {{ tag: 'DELETE', label: '/api/goodbye/' }}
+## Delete user {{ tag: 'DELETE', label: '/v1/goodbye/' }}
 
 <Row>
   <Col>
@@ -116,10 +116,10 @@ The user model contains all the information about the user, such as their userna
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="DELETE" label="/api/goodbye/">
+    <CodeGroup title="Request" tag="DELETE" label="/v1/goodbye/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.watchdog.moe/api/goodbye/ \
+    curl -X DELETE https://watchdog-api.zeroruka.moe/v1/goodbye/ \
       -H "Authorization: Bearer {token}"
     ```
 

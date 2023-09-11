@@ -60,7 +60,7 @@ The `ListingsModel` is a database model that represents a listing, with properti
 
 ---
 
-## List all listings {{ tag: 'GET', label: '/api/listings/' }}
+## List all listings {{ tag: 'GET', label: '/v1/listings/' }}
 
 <Row>
   <Col>
@@ -70,10 +70,10 @@ The `ListingsModel` is a database model that represents a listing, with properti
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/api/listings/">
+    <CodeGroup title="Request" tag="GET" label="/v1/listings/">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.watchdog.moe/api/listings/ \
+    curl -G https://watchdog-api.zeroruka.moe/v1/listings/ \
       -H "Authorization: Bearer {token}" \
     ```
     </CodeGroup>
@@ -112,7 +112,7 @@ The `ListingsModel` is a database model that represents a listing, with properti
 
 ---
 
-## List a single listing {{ tag: 'GET', label: '/api/listings?listing_id={id}' }}
+## List a single listing {{ tag: 'GET', label: '/v1/listings?listing_id={id}' }}
 
 <Row>
   <Col>
@@ -130,10 +130,10 @@ The `ListingsModel` is a database model that represents a listing, with properti
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/api/listings?listing_id={id}">
+    <CodeGroup title="Request" tag="GET" label="/v1/listings?listing_id={id}">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.watchdog.moe/api/listings?listing_id={id} \
+    curl -G https://watchdog-api.zeroruka.moe/v1/listings?listing_id={id} \
       -H "Authorization: Bearer {token}" \
     ```
     </CodeGroup>
@@ -168,7 +168,7 @@ The `ListingsModel` is a database model that represents a listing, with properti
 
 ---
 
-## Delete all listings {{ tag: 'DELETE', label: '/api/listings/' }}
+## Delete all listings {{ tag: 'DELETE', label: '/v1/listings/' }}
 
 <Row>
   <Col>
@@ -178,10 +178,10 @@ The `ListingsModel` is a database model that represents a listing, with properti
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="DELETE" label="/api/listings/">
+    <CodeGroup title="Request" tag="DELETE" label="/v1/listings/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.watchdog.moe/api/listings/ \
+    curl -X DELETE https://watchdog-api.zeroruka.moe/v1/listings/ \
       -H "Authorization: Bearer {token}" \
     ```
     </CodeGroup>

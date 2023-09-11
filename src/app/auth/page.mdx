@@ -8,7 +8,7 @@ export const metadata = {
 
 On this page, we'll dive into the different authentication endpoints you can use to login and registration. {{ className: 'lead' }}
 
-## Register a new user {{ tag: 'POST', label: '/api/register/' }}
+## Register a new user {{ tag: 'POST', label: '/v1/register/' }}
 
 <Row>
   <Col>
@@ -32,10 +32,10 @@ On this page, we'll dive into the different authentication endpoints you can use
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/api/register/">
+    <CodeGroup title="Request" tag="POST" label="/v1/register/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X POST https://api.watchdog.moe/api/register/ \
+    curl -X POST https://watchdog-api.zeroruka.moe/v1/register/ \
       -d username={username} \
       -d password={password} \
       -d account={chat_id}
@@ -56,7 +56,7 @@ On this page, we'll dive into the different authentication endpoints you can use
 
 ---
 
-## Login to an existing user account {{ tag: 'POST', label: '/api/login/' }}
+## Login to an existing user account {{ tag: 'POST', label: '/v1/login/' }}
 
 <Row>
   <Col>
@@ -77,10 +77,10 @@ On this page, we'll dive into the different authentication endpoints you can use
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/api/login/">
+    <CodeGroup title="Request" tag="POST" label="/v1/login/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X POST https://api.watchdog.moe/api/login/ \
+    curl -X POST https://watchdog-api.zeroruka.moe/v1/login/ \
       -d username={username} \
       -d password={password}
     ```
@@ -98,7 +98,7 @@ On this page, we'll dive into the different authentication endpoints you can use
 
 ---
 
-## Change password {{ tag: 'POST', label: '/api/change-password/' }}
+## Change password {{ tag: 'POST', label: '/v1/change-password/' }}
 
 <Row>
   <Col>
@@ -119,10 +119,10 @@ On this page, we'll dive into the different authentication endpoints you can use
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/api/change-password/">
+    <CodeGroup title="Request" tag="POST" label="/v1/change-password/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X POST https://api.watchdog.moe/api/change-password/ \
+    curl -X POST https://watchdog-api.zeroruka.moe/v1/change-password/ \
       -H "Authorization: Bearer {token}" \
       -d old_password={old_password} \
       -d new_password={new_password}

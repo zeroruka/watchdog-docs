@@ -28,7 +28,7 @@ The url model contains all the information about the url that our scraper will s
 
 ---
 
-## List all urls {{ tag: 'GET', label: '/api/scraper/' }}
+## List all urls {{ tag: 'GET', label: '/v1/scraper/' }}
 
 <Row>
   <Col>
@@ -38,10 +38,10 @@ The url model contains all the information about the url that our scraper will s
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/messages">
+    <CodeGroup title="Request" tag="GET" label="/v1/scraper/">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/messages \
+    curl -G https://watchdog-api.zeroruka.moe/v1/scraper/ \
       -H "Authorization: Bearer {token}" \
     ```
 
@@ -65,7 +65,7 @@ The url model contains all the information about the url that our scraper will s
 
 ---
 
-## Add a url {{ tag: 'PUT', label: '/api/scraper/' }}
+## Add a url {{ tag: 'PUT', label: '/v1/scraper/' }}
 
 <Row>
   <Col>
@@ -86,10 +86,10 @@ The url model contains all the information about the url that our scraper will s
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/api/scraper/">
+    <CodeGroup title="Request" tag="POST" label="/v1/scraper/">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.watchdog.moe/api/scraper \
+    curl https://watchdog-api.zeroruka.moe/v1/scraper \
       -H "Authorization: Bearer {token}" \
       -d url="malaya notes" \
       -d name="malaya notes"
@@ -108,7 +108,7 @@ The url model contains all the information about the url that our scraper will s
 
 ---
 
-## Delete a url {{ tag: 'DELETE', label: '/api/scraper/' }}
+## Delete a url {{ tag: 'DELETE', label: '/v1/scraper/' }}
 
 <Row>
   <Col>
@@ -126,10 +126,10 @@ The url model contains all the information about the url that our scraper will s
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="DELETE" label="/api/scraper/">
+    <CodeGroup title="Request" tag="DELETE" label="/v1/scraper/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.watchdog.moe/api/scraper/ \
+    curl -X DELETE https://watchdog-api.zeroruka.moe/v1/scraper/ \
       -H "Authorization: Bearer {token}"
       -d url="https://www.ebay.com.sg/sch/i.html?_from=R40&_nkw=malaya+notes&_sacat=0&_sop=10&_ipg=120"
     ```

@@ -8,7 +8,7 @@ export const metadata = {
 
 The control endpoint manages the status of our scraper. On this page, we’ll dive into the different control endpoints you can use to manage the scraper status programmatically. {{ className: 'lead' }}
 
-## Get scraper status {{ tag: 'GET', label: '/api/control/status/' }}
+## Get scraper status {{ tag: 'GET', label: '/v1/control/status/' }}
 
 <Row>
   <Col>
@@ -18,10 +18,10 @@ The control endpoint manages the status of our scraper. On this page, we’ll di
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/api/control/status/">
+    <CodeGroup title="Request" tag="GET" label="/v1/control/status/">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.watchdog.moe/api/control/status/ \
+    curl -G https://watchdog-api.zeroruka.moe/v1/control/status/ \
       -H "Authorization: Bearer {token}" \
     ```
 
@@ -39,7 +39,7 @@ The control endpoint manages the status of our scraper. On this page, we’ll di
 
 ---
 
-## Start scraper {{ tag: 'POST', label: '/api/control/start' }}
+## Start scraper {{ tag: 'POST', label: '/v1/control/start' }}
 
 <Row>
   <Col>
@@ -49,10 +49,10 @@ The control endpoint manages the status of our scraper. On this page, we’ll di
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/api/control/start/">
+    <CodeGroup title="Request" tag="POST" label="/v1/control/start/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.watchdog.moe/api/control/start/ \
+    curl -X PUT https://watchdog-api.zeroruka.moe/v1/control/start/ \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -69,7 +69,7 @@ The control endpoint manages the status of our scraper. On this page, we’ll di
 
 ---
 
-## Stop scraper {{ tag: 'POST', label: '/api/control/stop' }}
+## Stop scraper {{ tag: 'POST', label: '/v1/control/stop' }}
 
 <Row>
   <Col>
@@ -79,10 +79,10 @@ The control endpoint manages the status of our scraper. On this page, we’ll di
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/api/control/stop/">
+    <CodeGroup title="Request" tag="POST" label="/v1/control/stop/">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.watchdog.moe/api/control/stop/ \
+    curl -X PUT https://watchdog-api.zeroruka.moe/v1/control/stop/ \
       -H "Authorization: Bearer {token}"
     ```
 
