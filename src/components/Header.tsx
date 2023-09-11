@@ -82,7 +82,7 @@ export const Header = forwardRef<
           <ThemeToggle />
         </div>
         <div className="hidden min-[416px]:contents">
-          <Button href="/login">Sign in</Button>
+          <Button href="https://watchdog.zeroruka.moe/login">Sign in</Button>
         </div>
       </div>
     </motion.div>
