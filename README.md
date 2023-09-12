@@ -1,46 +1,39 @@
-# Protocol
+# Watchdog API Documentation
 
-Protocol is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+This repository contains the codebase for the Watchdog API documentation website. The website is built using Next.js, a popular React framework, and styled with Tailwind CSS, a utility-first CSS framework. The documentation content is written in MDX, a format that lets you write JSX in your Markdown documents.
 
-## Getting started
+## Features
 
-To get started with this template, first install the npm dependencies:
+- Global Search: The website includes a global search feature powered by the `FlexSearch` library. The search feature works out of the box by automatically scanning your documentation pages to build its index. You can adjust the search parameters by editing the `/src/mdx/search.mjs` file.
+
+- Dark Mode: The website supports dark mode out of the box, thanks to the `next-themes` library.
+
+- Syntax Highlighting: The website uses `shiki` for syntax highlighting in code blocks.
+
+- Responsive: The website is fully responsive and works well on various screen sizes.
+
+## Getting Started
+
+To get started with this codebase, first install the npm dependencies:
 
 ```bash
 npm install
+# or
+yarn install
 ```
 
-Next, run the development server:
+Then, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
 ```
-
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
 ## Customizing
 
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
-
-## Global search
-
-This template includes a global search that's powered by the [FlexSearch](https://github.com/nextapps-de/flexsearch) library. It's available by clicking the search input or by using the `⌘K` shortcut.
-
-This feature requires no configuration, and works out of the box by automatically scanning your documentation pages to build its index. You can adjust the search parameters by editing the `/src/mdx/search.mjs` file.
+You can start customizing the website by modifying the files in the /src folder. The site will auto-update as you edit these files.
 
 ## License
 
 This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
-
-## Learn more
-
-To learn more about the technologies used in this site template, see the following resources:
-
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
-- [Framer Motion](https://www.framer.com/docs/) - the official Framer Motion documentation
-- [MDX](https://mdxjs.com/) - the official MDX documentation
-- [Algolia Autocomplete](https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/) - the official Algolia Autocomplete documentation
-- [FlexSearch](https://github.com/nextapps-de/flexsearch) - the official FlexSearch documentation
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - the official Zustand documentation
